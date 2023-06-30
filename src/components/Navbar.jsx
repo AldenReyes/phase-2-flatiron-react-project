@@ -3,10 +3,14 @@ import { Menu } from "semantic-ui-react"
 
 export default function Navbar() {
   return (
-    <Menu className="ui huge three item menu">
-      <Menu.Item as={NavLink} to="/" name="home"/>
+    <Menu className="ui five item menu">
+      <Menu.Item as={NavLink} to="/" name="Home"/>
+      <Menu.Item as={NavLink} to="saved-deals" name="Saved Deals"/>
       <Menu.Item as={NavLink} to="About" name="About"/>
-      <Menu.Item as={NavLink} to="About2" name="About2"/>
+          <div className="menu ui icon input">
+            <input type="text" placeholder="Search..."/>
+            <i className="search link icon" />
+          </div>
     </Menu>
   )
 }

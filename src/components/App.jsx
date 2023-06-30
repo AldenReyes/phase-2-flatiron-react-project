@@ -2,9 +2,9 @@ import "../styles/App.css"
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 import Header from "./Header";
 import Navbar from "./Navbar";
-import Home from "./Home";
-import About from "./About"
-import About2 from "./About2";
+import Home from "./Deals";
+import SavedDeals from "./SavedDeals"
+import About from "./About";
 
 function App() {
   return (
@@ -14,8 +14,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home/>} />
+        <Route path="saved-deals" element={<SavedDeals />} />
         <Route path="about" element={<About />} />
-        <Route path="about2" element={<About2 />} />
       </Routes>
     </div>
   </BrowserRouter>
