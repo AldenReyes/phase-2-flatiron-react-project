@@ -8,7 +8,11 @@ export default function DealCard({deals}) {
     return (deals.map(deal => {
         return (
             <Card key={deal.gameID} className="ui center aligned">
-              <Card.Content>
+              <Card.Content>                 
+                <div className="right floated meta">
+                  -{parseInt(deal.savings, 10)}%
+                </div>
+                  <i className="left floated star icon"></i>
                 {<img 
                     src={deal.thumb} 
                     alt={deal.title + " Thumbnail"} 
@@ -38,7 +42,9 @@ export default function DealCard({deals}) {
                   <span id="normal-price-text">${deal.normalPrice}</span>
                   &nbsp;| <strong>${deal.salePrice}</strong>
                 </p>
-                <Button>BUY</Button>              
+                <Button className="ui icon button black">
+                  <i className="steam icon"></i>
+                </Button>              
               </Card.Content>
             </Card>
         )
