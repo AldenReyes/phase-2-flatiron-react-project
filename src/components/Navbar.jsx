@@ -1,16 +1,19 @@
 import { useState, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Menu } from "semantic-ui-react";
 
 export default function Navbar() {
   const [search, setSearch] = useState("");
   const searchRef = useRef(null);
+  let navigate = useNavigate();
+
   function handleSearchChange(e) {
     setSearch(e.target.value);
   }
   function handleSearchSubmit(e) {
     if (e.type === "click" || e.key === "Enter") {
-      console.log(searchRef.current.value);
+      const searchValue = searchRef.current.value;
+      navigate(`/results?query=${searchValue}`);
     }
   }
   return (
@@ -22,7 +25,7 @@ export default function Navbar() {
         <div className="ui aligned right icon input ">
           <input
             type="text"
-            placeholder="Search..."
+            placeholder="Game Search..."
             value={search}
             ref={searchRef}
             onChange={handleSearchChange}
