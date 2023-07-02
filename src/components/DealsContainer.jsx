@@ -17,6 +17,7 @@ export default function Deals({ link }) {
         setDeals(data);
       } catch (error) {
         console.log("Error:", error);
+        alert("Failed to fetch deal data, please refresh");
       }
     }
     fetchDeals();

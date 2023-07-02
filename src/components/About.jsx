@@ -8,7 +8,8 @@ export default function About() {
             style={{ color: "#61dbfb" }}
           ></i>
         </i>
-        Built with React
+        <i className="fa-sharp fa-regular fa-browsers"></i>
+        Powered by React
       </h2>
     </main>
   );
