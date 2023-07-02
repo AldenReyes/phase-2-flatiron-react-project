@@ -6,10 +6,15 @@ export default function Results() {
   const query = new URLSearchParams(location.search);
   const queryValue = query.get("query");
   return (
-    <main>
-      <DealsContainer
-        link={`https://www.cheapshark.com/api/1.0/deals?storeID=1&sortBy=Deal Rating&pageSize=20&title=${queryValue}`}
-      />
-    </main>
+    <>
+      <header>
+        <h1>Search Results</h1>
+      </header>
+      <main>
+        <DealsContainer
+          link={`https://www.cheapshark.com/api/1.0/deals?storeID=1&sortBy=Deal Rating&pageSize=20&title=${queryValue}`}
+        />
+      </main>
+    </>
   );
 }

@@ -1,8 +1,13 @@
 import Deals from "./DealsContainer";
 export default function SavedDeals() {
   return (
-    <main>
-      <Deals />
-    </main>
+    <>
+      <header>
+        <h1>Saved Deals</h1>
+      </header>
+      <main>
+        <Deals />
+      </main>
+    </>
   );
 }

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Card, Container } from "semantic-ui-react";
 import "../styles/Deals.css";
 import DealCard from "./DealCard";
-import Header from "./Header";
 
 export default function Deals({ link }) {
   const [deals, setDeals] = useState(null);
@@ -24,16 +23,13 @@ export default function Deals({ link }) {
   }, [link]);
 
   return (
-    <>
-      <Header />
-      <main>
-        <div className="ui horizontal divider">Placeholder for sort</div>
-        <Container className="ui fluid center aligned">
-          <Card.Group itemsPerRow={5} doubling>
-            <DealCard deals={deals} />
-          </Card.Group>
-        </Container>
-      </main>
-    </>
+    <main>
+      <div className="ui horizontal divider">Placeholder for sort</div>
+      <Container className="ui fluid center aligned">
+        <Card.Group itemsPerRow={5} doubling>
+          <DealCard deals={deals} />
+        </Card.Group>
+      </Container>
+    </main>
   );
 }
