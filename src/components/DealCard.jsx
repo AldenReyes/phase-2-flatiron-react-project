@@ -46,7 +46,11 @@ export default function DealCard({ deals }) {
               }
             </p>
             <p>{deal.steamRatingText}</p>
-            <p id="sale-price-text">
+            <p
+              id="sale-price-text"
+              data-tooltip="USD"
+              data-position="top center"
+            >
               <span id="normal-price-text">${deal.normalPrice}</span>
               &nbsp;| <strong>${deal.salePrice}</strong>
             </p>
