@@ -1,4 +1,4 @@
-import Deals from "./DealsContainer";
+import DealsContainer from "./DealsContainer";
 export default function SavedDeals() {
   return (
     <>
@@ -6,7 +6,7 @@ export default function SavedDeals() {
         <h1>Saved Deals</h1>
       </header>
       <main>
-        <Deals />
+        <DealsContainer link="http://localhost:3001/saved" />
       </main>
     </>
   );
