@@ -5,7 +5,7 @@ export default function Home() {
     <>
       <DatedHeader />
       <main>
-        <DealsContainer link="https://www.cheapshark.com/api/1.0/deals?storeID=1&onSale=1&sortBy=Deal Rating&pageSize=20" />
+        <DealsContainer link="https://www.cheapshark.com/api/1.0/deals?storeID=1&onSale=1&sortBy=Deal Rating&pageSize=25" />
       </main>
     </>
   );
