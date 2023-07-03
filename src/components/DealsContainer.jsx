@@ -6,6 +6,8 @@ import DealCard from "./DealCard";
 export default function Deals({ link }) {
   const [deals, setDeals] = useState(null);
   const [sort, setSort] = useState(null);
+  const [update, setUpdate] = useState(false);
+
   useEffect(() => {
     async function fetchDeals() {
       try {
@@ -32,7 +34,7 @@ export default function Deals({ link }) {
     }
     fetchDeals();
     fetchSort();
-  }, [link]);
+  }, [link, update]);
 
   function handleSortRadio(event, { value }) {
     setSort(value);
@@ -120,7 +122,12 @@ export default function Deals({ link }) {
       </Form>
       <Container className="ui fluid center aligned">
         <Card.Group itemsPerRow={5} doubling>
-          <DealCard deals={sortDeals(deals)} sort={sort} />
+          <DealCard
+            deals={sortDeals(deals)}
+            sort={sort}
+            update={update}
+            onSetUpdate={setUpdate}
+          />
         </Card.Group>
       </Container>
     </main>

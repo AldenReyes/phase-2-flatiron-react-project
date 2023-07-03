@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { Card, Loader } from "semantic-ui-react";
 import "../styles/DealCard.css";
 
-export default function DealCard({ deals }) {
+export default function DealCard({ deals, update, onSetUpdate }) {
   async function postToDb(deal) {
     try {
       const response = await fetch("http://localhost:3001/saved", {
@@ -13,11 +14,26 @@ export default function DealCard({ deals }) {
         body: JSON.stringify({ ...deal, id: deal.gameID }),
       });
       if (!response.ok) {
-        alert("An error occurred while adding, deal may already be saved");
+        deleteFromDB(deal.gameID);
+        onSetUpdate(!update);
       }
     } catch (error) {
       console.log(error);
-      alert("An error occurred while adding, deal may already be saved");
+      alert("An error occurred while adding, please try again");
+    }
+  }
+
+  async function deleteFromDB(id) {
+    try {
+      await fetch(`http://localhost:3001/saved/${id}`, {
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+    } catch (error) {
+      console.log("Error: ", error);
     }
   }
 
