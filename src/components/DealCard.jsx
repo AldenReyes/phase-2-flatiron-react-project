@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Card, Loader } from "semantic-ui-react";
 import "../styles/DealCard.css";
 
