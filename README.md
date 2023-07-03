@@ -137,7 +137,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Alden Reyes - Aldenrey@gmail.com - <a href="https://www.linkedin.com/in/alden-reyes">LinkedIn</a>
 
-Project Link: [The Owen Wilson Wow Generator](https://github.com/AldenReyes/phase-1-SPA-Project-Owen-Wilson-Wow-Generator)
+Other Project Links: [The Owen Wilson Wow Generator](https://github.com/AldenReyes/phase-1-SPA-Project-Owen-Wilson-Wow-Generator)
 
 ---
 
