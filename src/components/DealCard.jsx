@@ -15,6 +15,7 @@ export default function DealCard({ deals, update, onSetUpdate }) {
       });
       if (!response.ok) {
         deleteFromDB(deal.gameID);
+        //hacky way to force component to re-render, better solution on to-do
         onSetUpdate(!update);
       }
     } catch (error) {
