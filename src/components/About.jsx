@@ -1,4 +1,5 @@
-import { Container } from "semantic-ui-react";
+import { Button, Container, Divider, Form, Header } from "semantic-ui-react";
+
 export default function About() {
   return (
     <main>
@@ -27,6 +28,16 @@ export default function About() {
           </span>
         </p>
         <p>Not affiliated with Steam. All rights respective.</p>
+        <Divider />
+        <Header as="h3" className="aligned">
+          Have a suggestion or comment?
+          <Header.Subheader content="Enter it below"></Header.Subheader>
+        </Header>
+        <Form>
+          <Form.TextArea />
+          <Button content="View Comments" />
+          <Button content="Add Comment" icon="edit" primary />
+        </Form>
       </Container>
     </main>
   );
