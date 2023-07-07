@@ -1,6 +1,5 @@
 import { Comment } from "semantic-ui-react";
 export default function CommentsPage({ comments }) {
-  console.log(comments);
   if (comments.length === 0) {
     return <Comment>No Comments</Comment>;
   }
