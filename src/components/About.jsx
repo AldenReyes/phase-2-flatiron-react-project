@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
-import {
-  Button,
-  Comment,
-  Container,
-  Divider,
-  Form,
-  Header,
-} from "semantic-ui-react";
+import { Comment, Container, Divider, Header } from "semantic-ui-react";
 import CommentsPage from "./CommentsPage";
+import CommentsForm from "./CommentsForm";
 
 export default function About() {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [comments, setComments] = useState(null);
   const handleViewButton = () => setIsCollapsed(!isCollapsed);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log("hello from about");
+    console.log(e);
+  }
   useEffect(() => {
     async function fetchComments() {
       try {
-        const response = await fetch("http://localhost:3001");
+        const response = await fetch("http://localhost:3001/comments");
         const data = await response.json();
         setComments(data);
       } catch (error) {
@@ -58,11 +58,10 @@ export default function About() {
           Have a suggestion or comment?
           <Header.Subheader content="Enter it below"></Header.Subheader>
         </Header>
-        <Form>
-          <Form.TextArea />
-          <Button content="View Comments" onClick={handleViewButton} />
-          <Button content="Add Comment" icon="edit" primary />
-        </Form>
+        <CommentsForm
+          onHandleViewButton={handleViewButton}
+          onHandleSubmit={handleSubmit}
+        />
       </Container>
       <Comment.Group collapsed={isCollapsed}>
         <CommentsPage comments={comments} />
