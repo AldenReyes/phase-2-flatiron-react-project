@@ -1,5 +1,5 @@
 import { Comment } from "semantic-ui-react";
-export default function UserComments() {
+export default function CommentsPage() {
   return (
     <Comment>
       <Comment.Author as="h5">Test</Comment.Author>
