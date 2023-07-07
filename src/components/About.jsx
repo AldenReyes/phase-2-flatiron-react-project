@@ -5,16 +5,36 @@ import CommentsForm from "./CommentsForm";
 
 export default function About() {
   const [isCollapsed, setIsCollapsed] = useState(true);
-  const [comments, setComments] = useState(null);
+  const [comments, setComments] = useState([
+    {
+      id: null,
+      name: "",
+      comment: "",
+    },
+  ]);
   const handleViewButton = () => setIsCollapsed(!isCollapsed);
 
-  function handleSubmit(e) {
+  function handleSubmit(e, formData) {
     e.preventDefault();
-    console.log("hello from about");
-    console.log(e);
+    async function postFormData() {
+      try {
+        const response = await fetch("http://localhost:3001/comments", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+        const data = await response.json();
+        setComments([...comments, data]);
+      } catch (error) {
+        console.log("Error posting comment: ", error);
+      }
+    }
+    postFormData();
   }
   useEffect(() => {
-    async function fetchComments() {
+    async function getComments() {
       try {
         const response = await fetch("http://localhost:3001/comments");
         const data = await response.json();
@@ -23,7 +43,7 @@ export default function About() {
         console.log("Error fetching comments: ", error);
       }
     }
-    fetchComments();
+    getComments();
   }, []);
 
   return (
